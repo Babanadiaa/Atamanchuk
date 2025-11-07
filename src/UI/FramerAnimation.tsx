@@ -26,7 +26,31 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-const FadeXSection = ({ children }: { children: React.ReactNode }) => {
+const FadeDownSection = ({ children }: { children: React.ReactNode }) => {
+    const controls = useAnimation();
+    const { ref, inView } = useInView({ threshold: 0.2 });
+
+    useEffect(() => {
+        if (inView) controls.start("visible");
+    }, [inView]);
+
+    return (
+        <motion.div
+            ref={ref}
+            variants={{
+                hidden: { opacity: 0, y: -50 },
+                visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+const FadeLeftSection = ({ children }: { children: React.ReactNode }) => {
     const controls = useAnimation();
     const { ref, inView } = useInView({ threshold: 0.2 });
 
@@ -50,4 +74,29 @@ const FadeXSection = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export { FadeXSection, FadeInSection };
+const FadeRightSection = ({ children }: { children: React.ReactNode }) => {
+    const controls = useAnimation();
+    const { ref, inView } = useInView({ threshold: 0.2 });
+
+    useEffect(() => {
+        if (inView) controls.start("visible");
+    }, [inView]);
+
+    return (
+        <motion.div
+            ref={ref}
+            variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+            }}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+
+export { FadeLeftSection, FadeRightSection, FadeInSection, FadeDownSection };

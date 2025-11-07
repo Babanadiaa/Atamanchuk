@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import { FadeRightSection } from "./FramerAnimation";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -12,6 +14,9 @@ export default function ContactForm() {
         email: "",
         message: "",
     });
+
+    const [isSending, setIsSending] = useState(false);
+    const [success, setSuccess] = useState("");
 
     const validate = () => {
         const newErrors = { name: "", email: "", message: "" };
@@ -38,69 +43,87 @@ export default function ContactForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (validate()) {
-            alert("Message sent successfully!");
-            setFormData({ name: "", email: "", message: "" });
-        }
+        if (!validate()) return;
+
+        setIsSending(true);
+        setSuccess("");
+
+        emailjs
+            .send(
+                "service_3xz3lae", // 🔹 заміни
+                "template_smbi4gj", // 🔹 заміни
+                formData,
+                "NnuGcqnH14lVkJRbj"   // 🔹 заміни
+            )
+            .then(() => {
+                setIsSending(false);
+                setSuccess("✅ Message sent successfully!");
+                setFormData({ name: "", email: "", message: "" });
+            })
+            .catch((err) => {
+                console.error(err);
+                setIsSending(false);
+                setSuccess("❌ Failed to send. Try again later.");
+            });
     };
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            className="w-full max-w-lg  space-y-6 "
-        >
+
+
+        <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
             {/* Name */}
-            <div>
-                <label className="block font-medium mb-1 text-black">Name</label>
-                <input
-                    type="text"
-                    placeholder="Your full name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
-                />
-                {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                )}
-            </div>
+            <FadeRightSection>
+                <div>
+                    <label className="block font-medium mb-1 text-black">Name</label>
+                    <input
+                        type="text"
+                        placeholder="Your full name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
+                    />
+                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                </div>
 
-            {/* Email */}
-            <div>
-                <label className="block font-medium mb-1 text-black">Email</label>
-                <input
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
-                />
-                {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
-            </div>
+                {/* Email */}
+                <div>
+                    <label className="block font-medium mb-1 text-black">Email</label>
+                    <input
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
+                    />
+                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                </div>
 
-            {/* Message */}
-            <div>
-                <label className="block font-medium mb-1 text-black">Message</label>
-                <textarea
-                    placeholder="Tell me about your project..."
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
-                />
-                {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-                )}
-            </div>
+                {/* Message */}
+                <div>
+                    <label className="block font-medium mb-1 text-black">Message</label>
+                    <textarea
+                        placeholder="Tell me about your project..."
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full border-b border-gray-300 focus:border-black outline-none py-2 placeholder-gray-400"
+                    />
+                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                </div>
 
-            {/* Submit button */}
-            <button
-                type="submit"
-                className="w-full cursor-pointer bg-black text-white py-3 font-semibold tracking-wide hover:bg-[#D4C4A8] transition  duration-300"
-            >
-                SEND MESSAGE
-            </button>
+                {/* Submit */}
+                <button
+                    type="submit"
+                    disabled={isSending}
+                    className={`w-full cursor-pointer bg-black text-white py-3 font-semibold tracking-wide transition duration-300 ${isSending ? "opacity-70" : "hover:bg-[#D4C4A8]"
+                        }`}
+                >
+                    {isSending ? "Sending..." : "SEND MESSAGE"}
+                </button>
+
+                {success && <p className="text-center text-sm mt-3">{success}</p>}
+            </FadeRightSection>
         </form>
+
     );
 }

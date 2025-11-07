@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import food from '../assets/food.jpg'
 import goose from '../assets/goose.jpg'
-import { FadeInSection, FadeXSection } from '../UI/FramerAnimation'
+import { FadeInSection, FadeLeftSection, FadeRightSection } from '../UI/FramerAnimation'
 
 export default function Project() {
     const [project] = useState([
@@ -40,7 +40,7 @@ export default function Project() {
                     <h2 className='text-5xl text-center'>Selected Work</h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto items-center mt-20">
                         {project.map((item, index) => (
-                            <FadeXSection key={index}>
+                            <FadeRightSection key={index}>
                                 <li
                                     key={index}
                                     className={`group relative overflow-hidden  border border-[#D4C4A8] ${index % 4 === 0 || index % 4 === 3
@@ -58,7 +58,7 @@ export default function Project() {
                                         <p>{item.brief}</p>
                                     </div>
                                 </li>
-                            </FadeXSection>
+                            </FadeRightSection>
                         ))}
                     </ul>
 
