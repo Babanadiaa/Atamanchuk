@@ -15,7 +15,7 @@ export default function Footer() {
     const arrowTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }) }
     return (
         <footer id='footer' className='flex flex-col items-center  py-20 bg-[#F5F5F5]'>
-            <div className=" max-w-6xl w-full justify-between items-center gap-6 text-center md:text-left flex flex-col md:flex-row  px-4 border-b pb-20 ">
+            <div className=" max-w-6xl w-full justify-between  gap-6 text-center md:text-left flex flex-col md:flex-row  px-4 border-b pb-20 ">
                 <div className="max-w-sm w-full flex flex-col gap-6  ">
                     <h2 className='font-bold text-2xl'>Maksym Atamanchuk</h2>
                     <p className='text-sm text-black/50'>Frontend Developer crafting interactive, scalable web applications with dynamic UI and delightful UX.</p>
@@ -32,7 +32,7 @@ export default function Footer() {
                 </div>
                 <div className=" flex flex-col gap-6 ">
                     <h3 className='font-bold uppercase'>Connect</h3>
-                    <ul className='flex gap-4'>
+                    <ul className='flex gap-4 justify-center'>
                         <li className='border border-[#D4C4A8] p-2 hover:bg-[#D4C4A8] hover:translate-y-[-4px] transition duration-300'><a href="https://www.linkedin.com/in/maksym-atamanchuk-435a8b352/"><SlSocialLinkedin /></a></li>
                         <li className='border border-[#D4C4A8] p-2 hover:bg-[#D4C4A8] hover:translate-y-[-4px] transition duration-300'><a href="https://github.com/Babanadiaa"><FiGithub /></a></li>
                         <li className='border border-[#D4C4A8] p-2 hover:bg-[#D4C4A8] hover:translate-y-[-4px] transition duration-300'><a href={resume} target="_blank"
