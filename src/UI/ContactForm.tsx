@@ -70,10 +70,10 @@ export default function ContactForm() {
     return (
 
 
-        <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg  mx-4">
             {/* Name */}
             <FadeRightSection>
-                <div>
+                <div className="mt-8">
                     <label className="block font-medium mb-1 text-black">Name</label>
                     <input
                         type="text"
@@ -86,7 +86,7 @@ export default function ContactForm() {
                 </div>
 
                 {/* Email */}
-                <div>
+                <div className="mt-8">
                     <label className="block font-medium mb-1 text-black">Email</label>
                     <input
                         type="email"
@@ -99,7 +99,7 @@ export default function ContactForm() {
                 </div>
 
                 {/* Message */}
-                <div>
+                <div className="mt-8">
                     <label className="block font-medium mb-1 text-black">Message</label>
                     <textarea
                         placeholder="Tell me about your project..."

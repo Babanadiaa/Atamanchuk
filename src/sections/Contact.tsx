@@ -11,20 +11,18 @@ import resume from '../assets/resume.pdf'
 
 export default function Contact() {
     return (
-        <section id='contact' className='min-h-screen  flex justify-center py-20'>
+        <section id='contact' className='min-h-screen  flex justify-center py-30'>
 
 
-            <div className="max-w-7xl w-full flex  flex-col justify-between  items-center px-4  ">
+            <div className="max-w-7xl w-full flex  flex-col justify-between  items-center   ">
                 <FadeInSection >
-                    <div className="px-4 sm:w-xl flex flex-col gap-4  items-center">
-                        <p className='uppercase text-black/50 text-sm tracking-[4px]'>Get in Touch</p>
+                    <div className="px-4  sm:w-xl flex flex-col gap-4  items-center">
                         <h2 className='text-5xl text-center '>
-                            Start Your Project
+                            Get in Touch
                         </h2>
-                        <p className='text-black/50 text-center text-lg'>Ready to bring your digital vision to life? Let's discuss how we can create something exceptional together.</p>
                     </div>
                 </FadeInSection>
-                <div className="flex flex-wrap w-full max-w-6xl justify-center  gap-16 mt-20  ">
+                <div className="flex flex-wrap w-full max-w-7xl justify-center  gap-16 mt-20  ">
 
                     <ContactForm />
 
