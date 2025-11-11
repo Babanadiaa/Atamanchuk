@@ -1,44 +1,41 @@
 import React, { useState } from 'react'
-import food from '../assets/food.jpg'
-import goose from '../assets/goose.jpg'
+import motionPortfolio from '../assets/motionPorfolio.png'
+import penutrition from '../assets/penutrition.png'
+import myPortfolio from '../assets/myPortfolio.png'
+import todo from '../assets/todo.png'
 import { FadeInSection, FadeLeftSection, FadeRightSection } from '../UI/FramerAnimation'
 
 export default function Project() {
     const [project] = useState([
         {
-            image: food,
-            name: 'Food App',
-            brief: `Невеликий сайт по доставці харчування, та з розрахунком калорійності індивідуально під людину
-            за допомогою формул. (Для повної працездібності потрібно запускати локальний сервер)`,
-            repoLink: 'https://github.com/Babanadiaa/penutrition'
-
+            image: motionPortfolio,
+            name: 'Motion Portfolio',
+            brief: 'Simple Portfolio with React + Vite + TailwindCSS + Framer Motion + React Intersection Observer',
+            repoLink: 'https://github.com/AtamanchukM/Friend-proj',
+            visitSite: 'https://atamanchukm.github.io/Friend-proj/'
         },
         {
-            image: food,
-            name: 'Food App',
-            brief: `Невеликий сайт по доставці харчування, та з розрахунком калорійності індивідуально під людину
-            за допомогою формул. (Для повної працездібності потрібно запускати локальний сервер)`,
-            repoLink: 'https://github.com/Babanadiaa/penutrition'
-
+            image: penutrition,
+            name: 'Penutrition',
+            brief: 'Penutrition — a web application that calculates personalized daily calorie needs based on user data and fitness goals, offering tailored meal recommendations and progress tracking. ',
+            repoLink: 'https://github.com/AtamanchukM/penutrition',
+            visitSite: 'https://atamanchukm.github.io/penutrition/'
         },
         {
-            image: goose,
-            name: 'Pizza App',
-            brief: `Сайт для замовлення піци, з можливістю вибору інгредієнтів. Також присутній React Router для переходу між сторінками.`,
-            repoLink: 'https://github.com/Babanadiaa/GoosePizza'
-
-
-
+            image: myPortfolio,
+            name: 'My Portfolio',
+            brief: 'This application. You can see code on github',
+            repoLink: 'https://github.com/AtamanchukM/Atamanchuk',
+            visitSite: 'https://atamanchukm.github.io/Atamanchuk/'
         },
         {
-            image: goose,
-            name: 'Pizza App',
-            brief: `Сайт для замовлення піци, з можливістю вибору інгредієнтів. Також присутній React Router для переходу між сторінками.`,
-            repoLink: 'https://github.com/Babanadiaa/GoosePizza'
-
-
-
+            image: todo,
+            name: 'Todo App',
+            brief: `Simple Todo App with React + Vite + TailwindCSS + Firebase, with authentication and realtime database     `,        
+            repoLink: 'https://github.com/AtamanchukM/Todo',
+            visitSite: 'https://babazhaba.netlify.app/'
         },
+
     ])
 
     const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -52,7 +49,7 @@ export default function Project() {
                         {project.map((item, index) => (
                             <FadeRightSection key={index}>
                                 <div
-                                    className={`group relative overflow-hidden border border-[#D4C4A8] ${index % 4 === 0 || index % 4 === 3 ? 'h-[400px]' : 'h-[300px]'}`}
+                                    className={`group relative overflow-hidden   ${index % 4 === 0 || index % 4 === 3 ? 'h-[400px]' : 'h-[300px]'}`}
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 >
                                     <img
@@ -72,12 +69,18 @@ export default function Project() {
                                         <p className='mb-6'>{item.brief}</p>
                                         <a
                                             href={item.repoLink}
-                                            className='p-3 border border-[#D4C4A8] hover:bg-[#D4C4A8]'
+                                            className='p-3 mr-4 border border-[#D4C4A8] hover:bg-[#D4C4A8] transition duration-200 '
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
                                             View On Github
                                         </a>
+                                        <a 
+                                            href={item.visitSite}
+                                            className='p-3 border border-[#D4C4A8] hover:bg-[#D4C4A8] transition duration-200 '
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >Visit Site</a>
                                     </div>
                                 </div>
                             </FadeRightSection>

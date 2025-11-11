@@ -19,10 +19,10 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: any) {
                     <div className="flex-1">
                         <a href="#home" className="lg:text-2xl text-lg  transition-colors duration-200">Maksym Atamanchuk</a>
                     </div>
+
                     <div className="hidden md:flex">
                         <Navigate />
                         <ul className="flex gap-4 text-lg border-l pl-4 ">
-                            <ThemeToggle />
                             <li className="pl-4  transition duration-200">
                                 <a href="https://www.linkedin.com/in/maksym-atamanchuk-435a8b352/" aria-label="LinkedIn Profile"><SlSocialLinkedin /></a>
                             </li>
@@ -31,6 +31,8 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: any) {
                             </li>
                         </ul>
                     </div>
+                            <ThemeToggle />
+
 
                     {/* Burger menu */}
                     <button className="md:hidden text-3xl" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Open Menu"><FiMenu /></button>

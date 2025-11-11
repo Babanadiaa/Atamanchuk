@@ -73,7 +73,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="w-full max-w-lg  mx-4" id="contact-form" name="contact-form">
             <FadeRightSection>
                 <div className="mt-8">
-                    <label htmlFor="name" className="block font-medium mb-1 text-black">Name</label>
+                    <label htmlFor="name" className="block font-medium mb-1 text-black dark:text-text-dark">Name</label>
                     <input
                         id="name"
                         type="text"
@@ -87,7 +87,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-8">
-                    <label htmlFor="email" className="block font-medium mb-1 text-black">Email</label>
+                    <label htmlFor="email" className="block font-medium mb-1 text-black dark:text-text-dark">Email</label>
                     <input
                         id="email"
                         type="email"
@@ -101,7 +101,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-8">
-                    <label htmlFor="message" className="block font-medium mb-1 text-black">Message</label>
+                    <label htmlFor="message" className="block font-medium mb-1 text-black dark:text-text-dark">Message</label>
                     <textarea
                         id="message"
                         placeholder="Tell me about your project..."
