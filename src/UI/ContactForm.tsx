@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import emailjs from "emailjs-com";
 import { FadeRightSection } from "./FramerAnimation";
 
 export default function ContactForm() {
+    const { t } = useTranslation();
+    
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -23,17 +26,17 @@ export default function ContactForm() {
         let isValid = true;
 
         if (!formData.name.trim()) {
-            newErrors.name = "Please enter your name";
+            newErrors.name = t('contact.form.nameError');
             isValid = false;
         }
 
         if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address";
+            newErrors.email = t('contact.form.emailError');
             isValid = false;
         }
 
         if (!formData.message.trim()) {
-            newErrors.message = "Please enter a message";
+            newErrors.message = t('contact.form.messageError');
             isValid = false;
         }
 
@@ -50,34 +53,32 @@ export default function ContactForm() {
 
         emailjs
             .send(
-                "service_3xz3lae", // 🔹 заміни
-                "template_smbi4gj", // 🔹 заміни
+                "service_3xz3lae",
+                "template_smbi4gj",
                 formData,
-                "NnuGcqnH14lVkJRbj"   // 🔹 заміни
+                "NnuGcqnH14lVkJRbj"
             )
             .then(() => {
                 setIsSending(false);
-                setSuccess("✅ Message sent successfully!");
+                setSuccess(t('contact.form.success'));
                 setFormData({ name: "", email: "", message: "" });
             })
             .catch((err) => {
                 console.error(err);
                 setIsSending(false);
-                setSuccess("❌ Failed to send. Try again later.");
+                setSuccess(t('contact.form.error'));
             });
     };
 
     return (
-
-
         <form onSubmit={handleSubmit} className="w-full max-w-lg  mx-4" id="contact-form" name="contact-form">
             <FadeRightSection>
                 <div className="mt-8">
-                    <label htmlFor="name" className="block font-medium mb-1 text-black dark:text-text-dark">Name</label>
+                    <label htmlFor="name" className="block font-medium mb-1 text-black dark:text-text-dark">{t('contact.form.nameLabel')}</label>
                     <input
                         id="name"
                         type="text"
-                        placeholder="Your full name"
+                        placeholder={t('contact.form.namePlaceholder')}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         autoComplete="name"
@@ -87,11 +88,11 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-8">
-                    <label htmlFor="email" className="block font-medium mb-1 text-black dark:text-text-dark">Email</label>
+                    <label htmlFor="email" className="block font-medium mb-1 text-black dark:text-text-dark">{t('contact.form.emailLabel')}</label>
                     <input
                         id="email"
                         type="email"
-                        placeholder="your.email@example.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         autoComplete="email"
@@ -101,10 +102,10 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-8">
-                    <label htmlFor="message" className="block font-medium mb-1 text-black dark:text-text-dark">Message</label>
+                    <label htmlFor="message" className="block font-medium mb-1 text-black dark:text-text-dark">{t('contact.form.messageLabel')}</label>
                     <textarea
                         id="message"
-                        placeholder="Tell me about your project..."
+                        placeholder={t('contact.form.messagePlaceholder')}
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -120,12 +121,11 @@ export default function ContactForm() {
                     className={`w-full cursor-pointer bg-second-dark-bg text-white py-3 font-semibold tracking-wide transition duration-300 ${isSending ? "opacity-70" : "hover:bg-[#D4C4A8]"
                         }`}
                 >
-                    {isSending ? "Sending..." : "SEND MESSAGE"}
+                    {isSending ? t('contact.form.sending') : t('contact.form.send')}
                 </button>
 
                 {success && <p className="text-center text-sm mt-3">{success}</p>}
             </FadeRightSection>
         </form>
-
     );
 }

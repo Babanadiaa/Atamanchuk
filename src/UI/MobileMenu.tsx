@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { RxCross1 } from "react-icons/rx";
 import { FadeLeftSection } from './FramerAnimation';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: any) {
+    const { t } = useTranslation();
+    
     return (
         <div className={`fixed right-0 bg-white dark:bg-second-dark-bg text-black
          z-40  flex-col items-center justify-center  gap-15 transition-all duration-300
@@ -17,16 +20,15 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: any) {
             </button>
             <ul className='flex flex-col items-center justify-between  py-20 text-xl text-[#D4C4A8] '>
                 <li className='w-full flex  text-center'><a href="#home" onClick={() => setIsMenuOpen(false)} className='font-semibold border-b w-full py-4'
-                >Home</a></li >
+                >{t('nav.home')}</a></li >
                 <li className='w-full flex  text-center'><a href="#about" onClick={() => setIsMenuOpen(false)} className='font-semibold border-b w-full py-4'
-                >About</a></li>
+                >{t('nav.about')}</a></li>
                 <li className='w-full flex  text-center'><a href="#services" onClick={() => setIsMenuOpen(false)} className=' font-semibold border-b w-full py-4'
-                >Services</a></li>
+                >{t('nav.services')}</a></li>
                 <li className='w-full flex  text-center'> <a href="#project" onClick={() => setIsMenuOpen(false)} className=' font-semibold border-b w-full py-4'
-                >Project</a></li>
+                >{t('nav.projects')}</a></li>
                 <li className='w-full flex  text-center'><a href="#contact" onClick={() => setIsMenuOpen(false)} className='font-semibold border-b w-full py-4'
-                >Contact</a></li>
-                <li className='w-full flex  text-center'></li>
+                >{t('nav.contact')}</a></li>
             </ul >
 
         </div >

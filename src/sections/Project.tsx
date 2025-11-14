@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import motionPortfolio from '../assets/motionPorfolio.png'
 import penutrition from '../assets/penutrition.png'
 import myPortfolio from '../assets/myPortfolio.png'
@@ -6,32 +7,34 @@ import todo from '../assets/todo.png'
 import { FadeInSection, FadeLeftSection, FadeRightSection } from '../UI/FramerAnimation'
 
 export default function Project() {
+    const { t } = useTranslation();
+    
     const [project] = useState([
         {
             image: motionPortfolio,
-            name: 'Motion Portfolio',
-            brief: 'Simple Portfolio with React + Vite + TailwindCSS + Framer Motion + React Intersection Observer',
+            name: t('projects.project1.name'),
+            brief: t('projects.project1.brief'),
             repoLink: 'https://github.com/AtamanchukM/Friend-proj',
             visitSite: 'https://atamanchukm.github.io/Friend-proj/'
         },
         {
             image: penutrition,
-            name: 'Penutrition',
-            brief: 'Penutrition — a web application that calculates personalized daily calorie needs based on user data and fitness goals, offering tailored meal recommendations and progress tracking. ',
+            name: t('projects.project2.name'),
+            brief: t('projects.project2.brief'),
             repoLink: 'https://github.com/AtamanchukM/penutrition',
             visitSite: 'https://atamanchukm.github.io/penutrition/'
         },
         {
             image: myPortfolio,
-            name: 'My Portfolio',
-            brief: 'This application. You can see code on github',
+            name: t('projects.project3.name'),
+            brief: t('projects.project3.brief'),
             repoLink: 'https://github.com/AtamanchukM/Atamanchuk',
             visitSite: 'https://atamanchukm.github.io/Atamanchuk/'
         },
         {
             image: todo,
-            name: 'Todo App',
-            brief: `Simple Todo App with React + Vite + TailwindCSS + Firebase, with authentication and realtime database     `,        
+            name: t('projects.project4.name'),
+            brief: t('projects.project4.brief'),
             repoLink: 'https://github.com/AtamanchukM/Todo',
             visitSite: 'https://babazhaba.netlify.app/'
         },
@@ -39,12 +42,13 @@ export default function Project() {
     ])
 
     const [openIndex, setOpenIndex] = useState<number | null>(null)
+    
     return (
         <section id='project' className='min-h-screen dark:bg-second-dark-bg dark:text-text-dark  flex  flex-col items-center  pt-30'>
             <FadeInSection>
 
                 <div className="max-w-7xl px-4 flex flex-col items-center">
-                    <h2 className='text-5xl text-center'>Selected Work</h2>
+                    <h2 className='text-5xl text-center'>{t('projects.title')}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto items-center mt-20">
                         {project.map((item, index) => (
                             <FadeRightSection key={index}>
@@ -73,21 +77,19 @@ export default function Project() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            View On Github
+                                            {t('projects.viewOnGithub')}
                                         </a>
                                         <a 
                                             href={item.visitSite}
                                             className='p-3 border border-[#D4C4A8] hover:bg-[#D4C4A8] transition duration-200 '
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                        >Visit Site</a>
+                                        >{t('projects.visitSite')}</a>
                                     </div>
                                 </div>
                             </FadeRightSection>
                         ))}
                     </div>
-
-                    {/* <button className="border-2 border-black font-bold  w-fit flex justify-center mt-20 px-12  py-4">View all projects</button> */}
 
                 </div>
             </FadeInSection>

@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "name": "Maksym Atamanchuk",
+    "title": "Frontend Developer",
+    "description": "I am frontend developer who loves creation interaction, scalable web applications. My purpose is to build solutions that offer dynamic UI, high performance and delightful UX.",
+    "viewWork": "View my work",
+    "getInTouch": "Get in touch",
+    "scroll": "scroll"
+  },
+  "about": {
+    "title": "Crafting Digital Experiences",
+    "paragraph1": "I build modern, responsive web applications with a focus on performance, usability, and maintainability. Using React, TypeScript, and Tailwind, I create interactive interfaces and seamless user experiences that work flawlessly across devices.",
+    "paragraph2": "I specialize in component-driven architecture, efficient state management, and API integration, crafting scalable solutions that grow with your needs. From dynamic dashboards and sliders to custom calculators and complex web services, I turn ideas into production-ready applications that are both functional and visually polished.",
+    "paragraph3": "My goal is to combine clean code with thoughtful design, delivering applications that users love and businesses rely on.",
+    "skillsTitle": "My skills",
+    "quote": "My purpose is to build solutions that offer dynamic UI, high performance and delightful UX.",
+    "quoteAuthor": "— Development Philosophy"
+  },
+  "services": {
+    "title": "How I Build Digital Solutions",
+    "service1": {
+      "number": "01",
+      "title": "Interactive Frontend Development",
+      "description": "Focus on React, TypeScript, and Tailwind, I specialize in crafting interactive frontend applications with smooth animations and micro-interactions that bring your digital experiences to life with engaging, responsive interfaces."
+    },
+    "service2": {
+      "number": "02",
+      "title": "Performance Optimization",
+      "description": "Code splitting, lazy loading, and performance auditing for faster load times. Delivering lightning-fast experiences that keep users engaged and improve conversion rates."
+    },
+    "service3": {
+      "number": "03",
+      "title": "Scalable Architecture",
+      "description": "Component systems and maintainable codebases for growing applications. Building solid foundations that evolve with your business needs and support long-term growth."
+    }
+  },
+  "projects": {
+    "title": "Selected Work",
+    "viewOnGithub": "View On Github",
+    "visitSite": "Visit Site",
+    "project1": {
+      "name": "Motion Portfolio",
+      "brief": "Simple Portfolio with React + Vite + TailwindCSS + Framer Motion + React Intersection Observer"
+    },
+    "project2": {
+      "name": "Penutrition",
+      "brief": "Penutrition — a web application that calculates personalized daily calorie needs based on user data and fitness goals, offering tailored meal recommendations and progress tracking."
+    },
+    "project3": {
+      "name": "My Portfolio",
+      "brief": "This application. You can see code on github"
+    },
+    "project4": {
+      "name": "Todo App",
+      "brief": "Simple Todo App with React + Vite + TailwindCSS + Firebase, with authentication and realtime database"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "directContact": "Direct Contact",
+    "preferDirect": "Prefer to reach out directly?",
+    "email": "maksumatmn@gmail.com",
+    "connect": "Connect",
+    "connectLinkedIn": "Connect in LinkedIn",
+    "followGitHub": "Follow on GitHub",
+    "downloadResume": "Download Resume PDF",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your full name",
+      "nameError": "Please enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "emailError": "Please enter a valid email address",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "messageError": "Please enter a message",
+      "sending": "Sending...",
+      "send": "SEND MESSAGE",
+      "success": "✅ Message sent successfully!",
+      "error": "❌ Failed to send. Try again later."
+    }
+  },
+  "footer": {
+    "name": "Maksym Atamanchuk",
+    "description": "Frontend Developer crafting interactive, scalable web applications with dynamic UI and delightful UX.",
+    "navigate": "Navigate",
+    "connect": "Connect",
+    "rights": "© 2025 Maksym Atamanchuk. All rights reserved.",
+    "backToTop": "Back to Top"
+  }
+}
